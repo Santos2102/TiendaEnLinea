@@ -22,9 +22,7 @@
                         <img src="Assets/Productos/{{ $pro->image_path }}" class="card-img-top mx-auto"
                             style="height: 150px; width: 150px;display: block;" alt="{{ $pro->image_path }}">
                         <div class="card-body">
-                            <a href="">
                                 <h6 class="card-title">{{ $pro->name }}</h6>
-                            </a>
                             <p>Q{{ $pro->price }}</p>
                             <form action="{{ route('cart.store') }}" method="POST">
                                 {{ csrf_field() }}
@@ -40,6 +38,10 @@
                                             title="add to cart">
                                             <i class="fa fa-shopping-cart"></i> agregar al carrito
                                         </button>
+                                    </div>
+                                    <h1></h1>
+                                    <div class="row">
+                                    <a href="{{route('producto.show',$pro->id)}}" class="btn btn-success"><i class="fa fa-info"></i> Ver Más</a>
                                     </div>
                                 </div>
                             </form>

@@ -13,7 +13,7 @@
                     <a class="nav-link" href="{{ route('shop') }}">TIENDA</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ route('cart.index') }}" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="badge badge-pill badge-dark">
                             <i class="fa fa-shopping-cart"></i> {{ \Cart::getTotalQuantity()}}

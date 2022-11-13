@@ -20,10 +20,6 @@
 <body class="fondo">
 
     <header>
-    @include('partials.navbar')
-    <br>
-    <br>
-    <br>
         <h1 class="titulo">Productos</h1>
         <br> <br>
     </header>
@@ -33,13 +29,6 @@
     <form action="{{route('producto.store')}}" method="post" >
     @csrf
         <div class="row" >
-        <div class="col-xs-12 col-sm-12 col-md-12">
-                        <label class="sub" ><b>Imagen:</b></label><br>
-                        <img src="/Assets/Productos/{{$producto->image_path}}" width="25%">
-                        @error('image_path')
-                            <small class="text-danger">{{$message}}</small>
-                        @enderror 
-                    </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
                         <label class="sub" ><b>Nombre:</b></label><br>
@@ -106,7 +95,13 @@
                         @enderror 
                     </div> 
                         
-                    
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <label class="sub" ><b>Imagen:</b></label><br>
+                        <img src="/Assets/Productos/{{$producto->image_path}}" width="25%">
+                        @error('image_path')
+                            <small class="text-danger">{{$message}}</small>
+                        @enderror 
+                    </div>
 
             </div>
 

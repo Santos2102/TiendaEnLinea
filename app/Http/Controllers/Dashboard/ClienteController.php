@@ -7,7 +7,7 @@ use App\Models\Producto;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreProductoPost;
 
-class ProductoController extends Controller
+class ClienteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,6 @@ class ProductoController extends Controller
     public function index()
     {
         //
-        $producto=Producto::orderby('created_at','asc') -> cursorpaginate(5);
-        echo view ('producto.index',['producto'=>$producto]);
     }
 
     /**
@@ -29,7 +27,6 @@ class ProductoController extends Controller
     public function create()
     {
         //
-        echo view ('producto.create',["producto"=> new producto()]);
     }
 
     /**
@@ -38,11 +35,9 @@ class ProductoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProductoPost $request)
+    public function store(Request $request)
     {
         //
-        Producto::create($request->validated());
-        return back()->with('status','Producto creado exitosamente');
     }
 
     /**
@@ -54,9 +49,8 @@ class ProductoController extends Controller
     public function show(Producto $producto)
     {
         //
-        echo view ('producto.show', ["producto" =>$producto]);
+        echo view ('cliente.show', ["producto" =>$producto]);
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -66,7 +60,6 @@ class ProductoController extends Controller
     public function edit(Producto $producto)
     {
         //
-        echo view ('producto.edit',["producto"=>$producto]);
     }
 
     /**
@@ -76,11 +69,9 @@ class ProductoController extends Controller
      * @param  \App\Models\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreProductoPost $request, Producto $producto)
+    public function update(Request $request, Producto $producto)
     {
         //
-        $producto->update($request->validated());
-        return back()->with('status','Gracias, Producto actualizado exitosamente');
     }
 
     /**
@@ -92,7 +83,5 @@ class ProductoController extends Controller
     public function destroy(Producto $producto)
     {
         //
-        $producto->delete();
-        return back()->with('status','Gracias, Producto borrado exitosamente');
     }
 }
