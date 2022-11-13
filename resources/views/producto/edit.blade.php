@@ -34,7 +34,7 @@
         <div class="container">
             <form action="{{route('producto.update',$producto->id)}}" method="post">
                 @method('PUT')
-                @include('dashboard.partials._form')
+                @include('partials._form')
             </form>   
         </div>
     </main>

@@ -1,4 +1,4 @@
-@include('dashboard.partials.sesion-flash-status')
+@include('partials.sesion-flash-status')
                 <section class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <label class="sub" ><b>Nombre:</b></label><br>

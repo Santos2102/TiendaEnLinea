@@ -32,7 +32,7 @@
     <main>
         <div class="container">
             <form action="{{route('producto.store')}}" method="post">
-                @include('dashboard.partials._form')
+                @include('partials._form')
             </form>   
         </div>
     </main>

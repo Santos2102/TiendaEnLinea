@@ -4,18 +4,18 @@
     
 } */
 .fondo{
-    background-image: url("/Assets/Image/fondo.jpg");
+    background-image: url("/Assets/Productos/fondo.jpg");
     background-attachment: fixed;
 }
 
 .titulo{
     text-align: center;
-    color: aliceblue;
+    color: black;
 }
 
 .sub{
     text-align: center;
-    color: aliceblue;
+    color: black;
     
 }
 
