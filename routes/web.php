@@ -33,3 +33,27 @@ Route::post('/remove', [CartController::class, 'remove'])->name('cart.remove');
 Route::post('/clear', [CartController::class, 'clear'])->name('cart.clear');
 Route::resource('producto', ProductoController::class);
 Route::resource('cliente', ClienteController::class);
+
+
+Route::post('login', function(){
+    $credentials = request()->only('email','password');
+    $temporal = Arr::get($credentials,'email');
+    echo $temporal;
+
+    // Verificacion de usuarios
+    if(Auth::attempt($credentials))
+    {
+        if($temporal=="Gerente@gmail.com"){
+            request()->session()->regenerate();
+            return redirect('/');   // colocar la ruta de los reportes
+        }
+        else if($temporal=="Admin@gmail.com"){
+            request()->session()->regenerate();
+            return redirect('/producto');
+        }
+        else {
+            request()->session()->regenerate();
+            return redirect('/');
+        }
+    }
+});
