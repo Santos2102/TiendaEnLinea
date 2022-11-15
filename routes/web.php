@@ -33,6 +33,7 @@ Route::post('/remove', [CartController::class, 'remove'])->name('cart.remove');
 Route::post('/clear', [CartController::class, 'clear'])->name('cart.clear');
 Route::resource('producto', ProductoController::class);
 Route::resource('cliente', ClienteController::class);
+Route::get('download-pdf',[CartController::class,'downloadPDF'])->name('download-pdf');
 
 
 Route::post('login', function(){

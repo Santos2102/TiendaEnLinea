@@ -83,10 +83,15 @@
             <hr>
             @endforeach
             @if(count($cartCollection)>0)
-            <form action="{{ route('cart.clear') }}" method="POST">
-                {{ csrf_field() }}
-                <button class="btn btn-secondary btn-md">Borrar Carrito</button>
-            </form>
+            <div class="container">
+                <div class="row" >
+                    <form action="{{ route('cart.clear') }}" method="POST">
+                        {{ csrf_field() }}
+                        <button class="btn btn-secondary btn-md">Borrar Carrito</button>
+                    </form>
+                </div>
+                <a href="{{ route('download-pdf') }}" class="btn btn-success btn-sm">Generar Cotizacion</a>
+            </div>
             @endif
         </div>
         @if(count($cartCollection)>0)

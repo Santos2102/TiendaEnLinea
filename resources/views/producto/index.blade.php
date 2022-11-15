@@ -15,11 +15,18 @@
 </head>
 <body style="background-image: url('/Assets/Image/fondo.jpg');background-attachment: fixed;">
     <header >
-        <a class="btn btn-primary" href="{{route('producto.create')}}">Crear</a>
+    @include('partials.navbar_admin')
+    <br>
+    <br>
+    <br>
+        
     </header>    
 
     <main>
         <div class="container">
+        <a class="btn btn-primary" href="{{route('producto.create')}}">Crear</a>
+        <br>
+        <br>
             <table class="table table-striped" style="background-color: white;">
                 <thead>
                 <tbody>

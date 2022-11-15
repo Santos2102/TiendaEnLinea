@@ -3,6 +3,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Producto;
+use Barryvdh\DomPDF\Facade;
+use PDF;
 
 class CartController extends Controller
 {
@@ -25,6 +27,18 @@ class CartController extends Controller
         ]);
         ;
     }
+
+    public function downloadPDF(){
+        $cartCollection = \Cart::getContent();
+
+       view()->share('producto.download',$cartCollection);
+
+        $pdf = PDF::loadView('producto.download', ['cartCollection' =>$cartCollection]);
+
+        return $pdf->download('Cotizacion.pdf');
+    }
+
+
     public function remove(Request $request)
     {
         \Cart::remove($request->id);
@@ -64,5 +78,4 @@ class CartController extends Controller
         \Cart::clear();
         return redirect()->route('cart.index')->with('success_msg', 'Car is cleared!');
     }
-
 }
