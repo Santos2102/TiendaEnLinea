@@ -39,7 +39,7 @@
             @if(\Cart::getTotalQuantity()>0)
             <h4>{{ \Cart::getTotalQuantity()}} Producto(s) en el carrito</h4><br>
             @else
-            <h4>No Product(s) In Your Cart</h4><br>
+            <h4>No hay productos en tu carrito</h4><br>
             <a href="/" class="btn btn-dark">Continue en la tienda</a>
             @endif
             @foreach($cartCollection as $item)
@@ -66,9 +66,9 @@
                                 <input type="hidden" value="{{ $item->id}}" id="id" name="id">
                                 <input type="number" class="form-control form-control-sm" value="{{ $item->quantity }}"
                                     id="quantity" name="quantity" style="width: 70px; margin-right:
-10px;">
-                                <button class="btn btn-secondary btn-sm" style="margin-right:
-25px;"><i class="fa fa-edit"></i></button>
+                                10px;">
+                                <button class="btn btn-secondary btn-sm" style="margin-rxight:
+                                25px;"><i class="fa fa-edit"></i></button>
                             </div>
                         </form>
                         <form action="{{ route('cart.remove') }}" method="POST">
@@ -101,7 +101,46 @@
                     <li class="list-group-item"><b>Total: </b>Q{{ \Cart::getTotal() }}</li>
                 </ul>
             </div>
+
+            <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Sucursales
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="#"><b> Pradera Chimaltenango</b></a></li>
+                                <li><a class="dropdown-item" href="#"><b> Pradera Escuintla</b></a></li>
+                                <li><a class="dropdown-item" href="#"><b> Las Américas Mazatenango</b></a></li>
+                                <li><a class="dropdown-item" href="#"><b> La Trinidad Coatepeque</b></a></li>
+                                <li><a class="dropdown-item" href="#"><b> Pradera Xela Quetzaltenango</b></a></li>
+                                <li><a class="dropdown-item" href="#"><b> Centro Comercial Miraflores CC</b></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
             <br><a href="/" class="btn btn-dark">Continue en la tienda</a>
+
+
+            
+            @foreach($products as $pro)
+
+                <form action="{{ route('cart.store') }}" method="POST">
+                {{ csrf_field() }}
+                <input type="hidden" value="{{ $pro->id }}" id="id" name="id">
+                <input type="hidden" value="{{ $pro->name }}" id="name" name="name">
+                <input type="hidden" value="{{ $pro->price }}" id="price" name="price">
+                <input type="hidden" value="{{ $pro->image_path }}" id="img" name="img">
+                <input type="hidden" value="{{ $pro->slug }}" id="slug" name="slug">
+                <input type="hidden" value="1" id="quantity" name="quantity">
+               
+                </form>
+                   
+                  
+            @endforeach
+
             <a href="/checkout" class="btn btn-success">Proceder al Checkout</a>
         </div>
         @endif

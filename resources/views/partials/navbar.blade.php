@@ -34,25 +34,6 @@
                     </div>
                 </li>
 
-                <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-                    <ul class="navbar-nav">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Sucursales
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item" href="#"><b> Pradera Chimaltenango</b></a></li>
-                                <li><a class="dropdown-item" href="#"><b> Pradera Escuintla</b></a></li>
-                                <li><a class="dropdown-item" href="#"><b> Las Américas Mazatenango</b></a></li>
-                                <li><a class="dropdown-item" href="#"><b> La Trinidad Coatepeque</b></a></li>
-                                <li><a class="dropdown-item" href="#"><b> Pradera Xela Quetzaltenango</b></a></li>
-                                <li><a class="dropdown-item" href="#"><b> Centro Comercial Miraflores CC</b></a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-
                 <li class="nav-item">
                     <a class="nav-link" href="/contactanos">Contactanos</a>
                 </li>
