@@ -29,14 +29,17 @@
 
                 <li class="nav-item dropdown"> <a href="#"><b> Sucursales</b> </a> 
                 <ul>
-                    <li><a href="#"><b> Pradera Chimaltenango</b></a></li>
-                    <li><a href="#"><b> Pradera Escuintla</b></a></li>
-                    <li><a href="#"><b> Las Américas Mazatenango</b></a></li>
-                    <li><a href="#"><b> La Trinidad Coatepeque</b></a></li>
-                    <li><a href="#"><b> Pradera Xela Quetzaltenango</b></a></li>
-                    <li><a href="#"><b> Centro Comercial Miraflores CC</b></a></li>
+                    <li><a class="dropdown-item" href="#"><b> Pradera Chimaltenango</b></a></li>
+                    <li><a class="dropdown-item" href="#"><b> Pradera Escuintla</b></a></li>
+                    <li><a class="dropdown-item" href="#"><b> Las Américas Mazatenango</b></a></li>
+                    <li><a class="dropdown-item" href="#"><b> La Trinidad Coatepeque</b></a></li>
+                    <li><a class="dropdown-item" href="#"><b> Pradera Xela Quetzaltenango</b></a></li>
+                    <li><a class="dropdown-item" href="#"><b> Centro Comercial Miraflores CC</b></a></li>
                 </ul>
 
+                </li>
+                <li class="nav-item">
+                    <a href="#">Contactanos</a>
                 </li>
 
             </ul>
