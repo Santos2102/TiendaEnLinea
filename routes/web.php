@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\Dashboard\ProductoController;
 use App\Http\Controllers\Dashboard\ClienteController;
+use App\Http\Controllers\Dashboard\GoogleController;
+
 
 
 /*
@@ -34,6 +36,7 @@ Route::post('/clear', [CartController::class, 'clear'])->name('cart.clear');
 Route::resource('producto', ProductoController::class);
 Route::resource('cliente', ClienteController::class);
 Route::get('download-pdf',[CartController::class,'downloadPDF'])->name('download-pdf');
+Route::get('contactanos', [GoogleController::class, 'index']);
 
 
 Route::post('login', function(){
