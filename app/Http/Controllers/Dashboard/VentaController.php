@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\Location;
+use App\Models\Venta;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreVentaPost;
 
-class ContactController extends Controller
+class VentaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,18 +35,20 @@ class ContactController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreVentaPost $request)
     {
         //
+        Venta::create($request->validated());
+        return back()->with('status','Venta creada exitosamente');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Location  $location
+     * @param  \App\Models\Venta  $venta
      * @return \Illuminate\Http\Response
      */
-    public function show(Location $location)
+    public function show(Venta $venta)
     {
         //
     }
@@ -53,10 +56,10 @@ class ContactController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Location  $location
+     * @param  \App\Models\Venta  $venta
      * @return \Illuminate\Http\Response
      */
-    public function edit(Location $location)
+    public function edit(Venta $venta)
     {
         //
     }
@@ -65,10 +68,10 @@ class ContactController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Location  $location
+     * @param  \App\Models\Venta  $venta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Location $location)
+    public function update(Request $request, Venta $venta)
     {
         //
     }
@@ -76,10 +79,10 @@ class ContactController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Location  $location
+     * @param  \App\Models\Venta  $venta
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Location $location)
+    public function destroy(Venta $venta)
     {
         //
     }

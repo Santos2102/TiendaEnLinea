@@ -18,6 +18,7 @@
     <!-- CSS only -->
 
     <title>Store Online S.A.</title>
+    @include('partials.navbar_admin')
 </head>
 
 <body class="fondo">

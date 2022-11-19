@@ -24,7 +24,7 @@
     </div>
     @endif
     @if(count($errors) > 0)
-    @foreach($errors0>all() as $error)
+    @foreach($errors->all() as $error)
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         {{ $error }}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -65,10 +65,9 @@
                             <div class="form-group row">
                                 <input type="hidden" value="{{ $item->id}}" id="id" name="id">
                                 <input type="number" class="form-control form-control-sm" value="{{ $item->quantity }}"
-                                    id="quantity" name="quantity" style="width: 70px; margin-right:
-                                10px;">
-                                <button class="btn btn-secondary btn-sm" style="margin-rxight:
-                                25px;"><i class="fa fa-edit"></i></button>
+                                    id="quantity" name="quantity" style="width: 70px; margin-right:10px;">
+                                <button class="btn btn-secondary btn-sm" style="margin-right: 10px; width: 30px;"><i
+                                        class="fa fa-edit"></i></button>
                             </div>
                         </form>
                         <form action="{{ route('cart.remove') }}" method="POST">
@@ -84,7 +83,7 @@
             @endforeach
             @if(count($cartCollection)>0)
             <div class="container">
-                <div class="row" >
+                <div class="row">
                     <form action="{{ route('cart.clear') }}" method="POST">
                         {{ csrf_field() }}
                         <button class="btn btn-secondary btn-md">Borrar Carrito</button>
@@ -101,47 +100,43 @@
                     <li class="list-group-item"><b>Total: </b>Q{{ \Cart::getTotal() }}</li>
                 </ul>
             </div>
+            <h1> </h1>
 
-            <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-                    <ul class="navbar-nav">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Sucursales
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item" href="#"><b> Pradera Chimaltenango</b></a></li>
-                                <li><a class="dropdown-item" href="#"><b> Pradera Escuintla</b></a></li>
-                                <li><a class="dropdown-item" href="#"><b> Las Américas Mazatenango</b></a></li>
-                                <li><a class="dropdown-item" href="#"><b> La Trinidad Coatepeque</b></a></li>
-                                <li><a class="dropdown-item" href="#"><b> Pradera Xela Quetzaltenango</b></a></li>
-                                <li><a class="dropdown-item" href="#"><b> Centro Comercial Miraflores CC</b></a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+            <div>
+                <label for="sucursal">Sucursal:</label>
 
-            <br><a href="/" class="btn btn-dark">Continue en la tienda</a>
-
+                <select id="sucursales" name="sucursales">
+                    <option value="Pradera Chimaltenango">Pradera Chimaltenango</option>
+                    <option value="Pradera Escuintla">Pradera Escuintla</option>
+                    <option value="Las Américas Mazatenango">Las Américas Mazatenango</option>
+                    <option value="La Trinidad Coatepeque">La Trinidad Coatepeque</option>
+                    <option value="Pradera Xela Quetzaltenango">Pradera Xela Quetzaltenango</option>
+                    <option value="Centro Comercial Miraflores CC">Centro Comercial Miraflores CC</option>
+                </select>
+            </div>
+            <h1> </h1>
 
             
-            @foreach($products as $pro)
-
-                <form action="{{ route('cart.store') }}" method="POST">
+            @foreach($cartCollection as $item)
+            <form action="{{ route('venta.store') }}" method="post">
                 {{ csrf_field() }}
-                <input type="hidden" value="{{ $pro->id }}" id="id" name="id">
-                <input type="hidden" value="{{ $pro->name }}" id="name" name="name">
-                <input type="hidden" value="{{ $pro->price }}" id="price" name="price">
-                <input type="hidden" value="{{ $pro->image_path }}" id="img" name="img">
-                <input type="hidden" value="{{ $pro->slug }}" id="slug" name="slug">
-                <input type="hidden" value="1" id="quantity" name="quantity">
-               
-                </form>
-                   
-                  
+                <input type="hidden" value="{{ $item->quantity }}" id="quantity" name="quantity">
+                <input type="hidden" value="{{ $item->name }}" id="name" name="name">
+                <input type="hidden" value="{{ $item->price }}" id="price" name="price">
+                <input type="hidden" value="{{ \Cart::get($item->id)->getPriceSum() }}" id="subtotal" name="subtotal">
+                <input type="hidden" value="sucursales" id="Sucursal" name="Sucursal">
+                @guest
+                <input type="hidden" value="{{ Auth::user()->name }}" id="Cliente" name="Cliente">
+                @endguest
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                <h1> </h1>
+                    <button id="but" class="btn btn-warning" type="submit">Proceder al Checkout {{ $item->name }}</button>
+                </div>
+            </form>
             @endforeach
-
-            <a href="/checkout" class="btn btn-success">Proceder al Checkout</a>
+            
+            <h1> </h1>
+            <a href="/" class="btn btn-dark">Continue en la tienda</a>
         </div>
         @endif
     </div>

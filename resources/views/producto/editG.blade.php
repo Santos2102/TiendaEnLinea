@@ -18,7 +18,7 @@
     <!-- CSS only -->
 
     <title>Store Online S.A.</title>
-    @include('partials.navbar_admin')
+    @include('partials.navbar_gerente')
 </head>
 
 <body class="fondo">
@@ -33,7 +33,7 @@
 
     <main>
         <div class="container">
-            <form action="{{route('producto.update',$producto->id)}}" method="post">
+            <form action="{{route('gerente.update',$producto->id)}}" method="post">
                 @method('PUT')
                 @include('partials._form')
             </form>   

@@ -18,14 +18,13 @@
     <!-- CSS only -->
 
     <title>Store Online S.A.</title>
-    @include('partials.navbar_admin')
+    @include('partials.navbar_gerente')
 </head>
 
 <body class="fondo">
     <header>
-
-
-    <h1 class="titulo">Edición de Productos</h1>
+    
+    <h1 class="titulo">Ingreso de productos</h1>
     <br> <br>
 
     <img class="ima" src="/Assets/Image/logo.png" alt="" width="25%">
@@ -33,8 +32,7 @@
 
     <main>
         <div class="container">
-            <form action="{{route('producto.update',$producto->id)}}" method="post">
-                @method('PUT')
+            <form action="{{route('producto.store')}}" method="post">
                 @include('partials._form')
             </form>   
         </div>
