@@ -77,6 +77,13 @@
     </script>
   
     <script type="text/javascript" src="https://maps.google.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&callback=initMap" ></script>
+
+    <img class="ima" src="Assets/Recursos/LOGOProgra.png" alt="" width="50%">
+    <h2 class=" par">Poniendo la tecnologia a tu alcance!</h2>
   
 </body>
+
+<footer>
+        @include('partials._footer')
+    </footer>
 </html>
