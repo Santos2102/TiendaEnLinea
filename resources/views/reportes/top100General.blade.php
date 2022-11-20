@@ -15,7 +15,7 @@
 </head>
 <body style="background-image: url('/Assets/Image/fondo.jpg');background-attachment: fixed;">
     <header >
-    @include('partials.navbar_admin')
+    @include('partials.navbar_gerente')
     <br>
     <br>
     <br>
