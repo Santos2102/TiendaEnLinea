@@ -59,16 +59,16 @@ class ReporteController extends Controller
 
     public function menosExistencia()
     {
-        $sql = 'SELECT  shipping_cost, NAME,brand, details, price FROM productos WHERE shipping_cost < 20';
+        $sql = 'SELECT  shipping_cost, NAME,brand, details, price FROM productos WHERE shipping_cost < 10 Limit 20';
         $products = DB::select($sql);
-        return $products;
+        echo view ('reportes.top20existencias',['products'=>$products]);
     }
 
     public function ClienteFrecuente()
     {
         $sql = 'SELECT  count(Cliente) AS Cantidad, Cliente FROM ventas GROUP BY Cliente LIMIT 1';
         $products = DB::select($sql);
-        return $products;
+        echo view ('reportes.clienteFrecuente',['products'=>$products]);
     }
 
     public function ClienteFrecuenteChimaltenango()
