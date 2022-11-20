@@ -44,6 +44,7 @@ class CartController extends Controller
         \Cart::remove($request->id);
         return redirect()->route('cart.index')->with('success_msg', 'Producto Eliminado!');
     }
+    
     public function add(Request $request)
     {
         \Cart::add(

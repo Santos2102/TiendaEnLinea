@@ -103,23 +103,17 @@
             <h1> </h1>
 
 
-            <h1> </h1>
-
-
             @foreach($cartCollection as $item)
             <form action="{{ route('venta.store') }}" method="post">
                 {{ csrf_field() }}
-                <input type="text" value="{{ $item->quantity }}" id="quantity" name="quantity">
-                <input type="text" value="{{ $item->name }}" id="name" name="name">
-                <input type="text" value="{{ $item->price }}" id="price" name="price">
-                <input type="text" value="{{ \Cart::get($item->id)->getPriceSum() }}" id="subtotal" name="subtotal">
-                <input type="text"  value="" id="Cliente" name="Cliente">
-                <input type="text" value="{{ Auth::user()->name }}" id="Cliente" name="Cliente">
-                @endforeach
+                <input type="hidden" value="{{ $item->quantity }}" id="quantity" name="quantity">
+                <input type="hidden" value="{{ $item->name }}" id="name" name="name">
+                <input type="hidden" value="{{ $item->price }}" id="price" name="price">
+                <input type="hidden" value="{{ \Cart::get($item->id)->getPriceSum() }}" id="subtotal" name="subtotal">
+                <h1> </h1>
                 <div>
-                    <label for="sucursal">Sucursal:</label>
-                    
-                    <select id="Sucursales" name="Sucursales" onchange="ShowSelected()">
+                    <label>Sucursal:</label>
+                    <select id="Sucursal" name="Sucursal">
                         <option value="Pradera Chimaltenango">Pradera Chimaltenango</option>
                         <option value="Pradera Escuintla">Pradera Escuintla</option>
                         <option value="Las Américas Mazatenango">Las Américas Mazatenango</option>
@@ -127,21 +121,14 @@
                         <option value="Pradera Xela Quetzaltenango">Pradera Xela Quetzaltenango</option>
                         <option value="Centro Comercial Miraflores CC">Centro Comercial Miraflores CC</option>
                     </select>
-                    <script>
-                        function ShowSelected() {
-                            /* Para obtener el valor */
-                            var cod = document.getElementById("Sucursales").value = mensaje;
-                            alert(cod);
-                        }
-                    </script>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <h1> </h1>
-                    <button id="but" class="btn btn-warning" type="submit">Proceder al Checkout {{
-                        $item->name}}</button>
-                </div>
-            </form>
+                <input type="hidden" value="{{ Auth::user()->name }}" id="Cliente" name="Cliente">
 
+                <h1> </h1>
+                <button onclick="borrar()" class="btn btn-warning btn-sm" style="margin-right: 10px;">Proceder al CheckOut {{$item->name }} </button>
+                
+            </form>
+            @endforeach
 
             <h1> </h1>
             <a href="/" class="btn btn-dark">Continue en la tienda</a>
