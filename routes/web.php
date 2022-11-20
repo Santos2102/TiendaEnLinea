@@ -48,6 +48,16 @@ Route::get('/top100PraderaChimaltenango', [ReporteController::class, 'sucursalPr
 Route::get('/top100PraderaEscuintla', [ReporteController::class, 'sucursalPraderaEscuintlaTOP100'])->name('reporte.100PraderaEscuintla');
 Route::get('/top100LaTrinidad', [ReporteController::class, 'sucursalLaTrinidadTOP100'])->name('reporte.100LaTrinidad');
 Route::get('/top100Miraflores', [ReporteController::class, 'sucursalMirafloresTOP100'])->name('reporte.100Miraflores');
+//Reporte Menor existencia
+Route::get('/ExistenciaMenor20', [ReporteController::class, 'menosExistencia'])->name('reporte.menorExistencia');
+//Reportes Cliente Frecuente
+Route::get('/ClienteFrecuente', [ReporteController::class, 'ClienteFrecuente'])->name('reporte.ClienteFrecuente');
+Route::get('/ClienteFrecuenteChimaltenango', [ReporteController::class, 'ClienteFrecuenteChimaltenango'])->name('reporte.ClienteFrecuenteChimaltenango');
+Route::get('/ClienteFrecuenteEscuintla', [ReporteController::class, 'ClienteFrecuenteEscuintla'])->name('reporte.ClienteFrecuenteEscuintla');
+Route::get('/ClienteFrecuenteMazatenango', [ReporteController::class, 'ClienteFrecuenteMazatenango'])->name('reporte.ClienteFrecuenteMazatenango');
+Route::get('/ClienteFrecuenteCoatepeque', [ReporteController::class, 'ClienteFrecuenteCoatepeque'])->name('reporte.ClienteFrecuenteCoatepeque');
+Route::get('/ClienteFrecuenteXela', [ReporteController::class, 'ClienteFrecuenteXela'])->name('reporte.ClienteFrecuenteXela');
+Route::get('/ClienteFrecuenteMiraflores', [ReporteController::class, 'ClienteFrecuenteMiraflores'])->name('reporte.ClienteFrecuenteMiraflores');
 
 Route::post('login', function(){
     $credentials = request()->only('email','password');

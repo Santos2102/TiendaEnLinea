@@ -56,4 +56,60 @@ class ReporteController extends Controller
         $products = DB::select($sql);
         echo view ('reportes.top100Sucursal',['products'=>$products]);
     }
+
+    public function menosExistencia()
+    {
+        $sql = 'SELECT  shipping_cost, NAME,brand, details, price FROM productos WHERE shipping_cost < 20';
+        $products = DB::select($sql);
+        return $products;
+    }
+
+    public function ClienteFrecuente()
+    {
+        $sql = 'SELECT  count(Cliente) AS Cantidad, Cliente FROM ventas GROUP BY Cliente LIMIT 1';
+        $products = DB::select($sql);
+        return $products;
+    }
+
+    public function ClienteFrecuenteChimaltenango()
+    {
+        $sql = 'SELECT  count(Cliente) AS Cantidad, Cliente FROM ventas where Sucursal = "Pradera Chimaltenango" GROUP BY Cliente LIMIT 1';
+        $products = DB::select($sql);
+        return $products;
+    }
+
+    public function ClienteFrecuenteMazatenango()
+    {
+        $sql = 'SELECT  count(Cliente) AS Cantidad, Cliente FROM ventas where Sucursal = "Las Américas Mazatenango" GROUP BY Cliente LIMIT 1';
+        $products = DB::select($sql);
+        return $products;
+    }
+
+    public function ClienteFrecuenteCoatepeque()
+    {
+        $sql = 'SELECT  count(Cliente) AS Cantidad, Cliente FROM ventas where Sucursal = "La Trinidad Coatepeque" GROUP BY Cliente LIMIT 1';
+        $products = DB::select($sql);
+        return $products;
+    }
+
+    public function ClienteFrecuenteXela()
+    {
+        $sql = 'SELECT  count(Cliente) AS Cantidad, Cliente FROM ventas where Sucursal = "Pradera Xela Quetzaltenango" GROUP BY Cliente LIMIT 1';
+        $products = DB::select($sql);
+        return $products;
+    }
+
+    public function ClienteFrecuenteEscuintla()
+    {
+        $sql = 'SELECT  count(Cliente) AS Cantidad, Cliente FROM ventas where Sucursal = "Pradera Escuintla" GROUP BY Cliente LIMIT 1';
+        $products = DB::select($sql);
+        return $products;
+    }
+
+    public function ClienteFrecuenteMiraflores()
+    {
+        $sql = 'SELECT  count(Cliente) AS Cantidad, Cliente FROM ventas where Sucursal = "Centro Comercial Miraflores CC" GROUP BY Cliente LIMIT 1';
+        $products = DB::select($sql);
+        return $products;
+    }
 }
