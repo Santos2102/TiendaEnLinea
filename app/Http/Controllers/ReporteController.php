@@ -12,7 +12,7 @@ class ReporteController extends Controller
     {
         $sql = 'SELECT  NAME, SUM(quantity) AS Cantidad FROM ventas GROUP BY NAME';
         $products = DB::select($sql);
-        return $products;
+        echo view ('reportes.top100General',['products'=>$products]);
     }
 
     public function sucursalMazatenangoTOP100()

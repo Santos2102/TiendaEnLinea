@@ -24,7 +24,6 @@
 
     <main>
         <div class="container">
-        <a class="btn btn-primary" href="{{route('producto.create')}}">Crear</a>
         <br>
         <br>
             <table class="table table-striped" style="background-color: white;">
@@ -41,14 +40,14 @@
                         </tr>
                     </tbody>
 
-                    @foreach($products as $producto)
+                    @foreach($products as $products)
                         <tr>
                            
                             <td>
-                                {{$producto->name}}
+                                {{$products->NAME}}
                             </td>
                             <td>
-                                {{$producto->cantidad}}
+                                {{$products->Cantidad}}
                             </td>
                             
 
