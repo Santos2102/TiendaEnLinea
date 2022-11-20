@@ -75,17 +75,14 @@
 	height: 700px;
 	width: 100%;
 }
+
 #foo{
-    width: 1520px;
-    height:220px;
     background-color:#01344E;
     color:white;
     text-align: center;
     padding-top: 58px;
 }
 #foo2{
-    width: 1520px;
-    height: 710x;
     background-color:#FFFFFF;
     color:#01344E;
     text-align: center;

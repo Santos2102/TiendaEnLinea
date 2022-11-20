@@ -1,5 +1,14 @@
 @extends('layouts.app')
 @section('content')
+<link rel="stylesheet" href="/Css/bootstrap.css">
+<link rel="stylesheet" href="/Css/estilos.css">
+<link rel="stylesheet" href="{{asset('css/>app.css')}}">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+    integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+    crossorigin="anonymous"></script>
 <div class="container" style="margin-top: 80px">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -22,7 +31,7 @@
                         <img src="Assets/Productos/{{ $pro->image_path }}" class="card-img-top mx-auto"
                             style="height: 150px; width: 150px;display: block;" alt="{{ $pro->image_path }}">
                         <div class="card-body">
-                                <h6 class="card-title">{{ $pro->name }}</h6>
+                            <h6 class="card-title">{{ $pro->name }}</h6>
                             <p>Q{{ $pro->price }}</p>
                             <form action="{{ route('cart.store') }}" method="POST">
                                 {{ csrf_field() }}
@@ -41,7 +50,8 @@
                                     </div>
                                     <h1></h1>
                                     <div class="row">
-                                    <a href="{{route('producto.show',$pro->id)}}" class="btn btn-success"><i class="fa fa-info"></i> Ver Más</a>
+                                        <a href="{{route('producto.show',$pro->id)}}" class="btn btn-success"><i
+                                                class="fa fa-info"></i> Ver Más</a>
                                     </div>
                                 </div>
                             </form>

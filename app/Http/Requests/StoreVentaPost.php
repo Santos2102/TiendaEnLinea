@@ -29,8 +29,8 @@ class StoreVentaPost extends FormRequest
             'name'=>'required|min:5|Max:500',
             'price'=>'required',
             'subtotal'=>'required',
-            'sucursal'=>'required|Max:500',
-            'cliente'=>'required|min:5|Max:500',
+            'Sucursal'=>'required|Max:500',
+            'Cliente'=>'required|min:5|Max:500',
         ];
     }
 }
