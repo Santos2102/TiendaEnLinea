@@ -68,6 +68,14 @@ Route::get('/ProductoVendidoMesXela', [ReporteController::class, 'productoMesXel
 Route::get('/ProductoVendidoMesMazatenango', [ReporteController::class, 'productoMesMazatenango'])->name('reporte.productoMesMazatenango');
 Route::get('/ProductoVendidoMesCoatepeque', [ReporteController::class, 'productoMesCoatepeque'])->name('reporte.productoMesCoatepeque');
 Route::get('/ProductoVendidoMesMiraflores', [ReporteController::class, 'productoMesMiraflores'])->name('reporte.productoMesMiraflores');
+//Reporte de Ventas
+Route::get('/VentasGeneral', [ReporteController::class, 'VentasGeneral'])->name('reporte.VentasGeneral');
+Route::get('/ventasChimaltenango', [ReporteController::class, 'ventasChimaltenango'])->name('reporte.ventasChimaltenango');
+Route::get('/ventasEscuintla', [ReporteController::class, 'ventasEscuintla'])->name('reporte.ventasEscuintla');
+Route::get('/ventasXela', [ReporteController::class, 'ventasXela'])->name('reporte.ventasXela');
+Route::get('/ventasMazatenango', [ReporteController::class, 'ventasMazatenango'])->name('reporte.ventasMazatenango');
+Route::get('/ventasMiraflores', [ReporteController::class, 'ventasMiraflores'])->name('reporte.ventasMiraflores');
+Route::get('/ventasCoatepeque', [ReporteController::class, 'ventasCoatepeque'])->name('reporte.ventasCoatepeque');
 
 Route::post('login', function(){
     $credentials = request()->only('email','password');
