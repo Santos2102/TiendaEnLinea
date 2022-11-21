@@ -49,7 +49,7 @@ Route::get('/top100PraderaEscuintla', [ReporteController::class, 'sucursalPrader
 Route::get('/top100LaTrinidad', [ReporteController::class, 'sucursalLaTrinidadTOP100'])->name('reporte.100LaTrinidad');
 Route::get('/top100Miraflores', [ReporteController::class, 'sucursalMirafloresTOP100'])->name('reporte.100Miraflores');
 //Reporte Menor existencia
-Route::get('/ExistenciaMenor20', [ReporteController::class, 'menosExistencia'])->name('reporte.menorExistencia');
+Route::get('/ExistenciaMenor10', [ReporteController::class, 'menosExistencia'])->name('reporte.menorExistencia');
 //Reportes Cliente Frecuente
 Route::get('/ClienteFrecuente', [ReporteController::class, 'ClienteFrecuente'])->name('reporte.ClienteFrecuente');
 Route::get('/ClienteFrecuenteChimaltenango', [ReporteController::class, 'ClienteFrecuenteChimaltenango'])->name('reporte.ClienteFrecuenteChimaltenango');
@@ -58,6 +58,16 @@ Route::get('/ClienteFrecuenteMazatenango', [ReporteController::class, 'ClienteFr
 Route::get('/ClienteFrecuenteCoatepeque', [ReporteController::class, 'ClienteFrecuenteCoatepeque'])->name('reporte.ClienteFrecuenteCoatepeque');
 Route::get('/ClienteFrecuenteXela', [ReporteController::class, 'ClienteFrecuenteXela'])->name('reporte.ClienteFrecuenteXela');
 Route::get('/ClienteFrecuenteMiraflores', [ReporteController::class, 'ClienteFrecuenteMiraflores'])->name('reporte.ClienteFrecuenteMiraflores');
+//Reporte compra entre fechas
+Route::get('/ComprasEntreFechas', [ReporteController::class, 'CompraPorFechas'])->name('reporte.CompraEntreFechas');
+//Reporte Producto mas vendido
+Route::get('/ProductoVendidoMes', [ReporteController::class, 'productoMes'])->name('reporte.productoMes');
+Route::get('/ProductoVendidoMesChimaltenango', [ReporteController::class, 'productoMesChimaltenango'])->name('reporte.productoMesChimaltenango');
+Route::get('/ProductoVendidoMesEscuintla', [ReporteController::class, 'productoMesEscuintla'])->name('reporte.productoMesEscuintla');
+Route::get('/ProductoVendidoMesXela', [ReporteController::class, 'productoMesXela'])->name('reporte.productoMesXela');
+Route::get('/ProductoVendidoMesMazatenango', [ReporteController::class, 'productoMesMazatenango'])->name('reporte.productoMesMazatenango');
+Route::get('/ProductoVendidoMesCoatepeque', [ReporteController::class, 'productoMesCoatepeque'])->name('reporte.productoMesCoatepeque');
+Route::get('/ProductoVendidoMesMiraflores', [ReporteController::class, 'productoMesMiraflores'])->name('reporte.productoMesMiraflores');
 
 Route::post('login', function(){
     $credentials = request()->only('email','password');
