@@ -77,42 +77,42 @@ class ReporteController extends Controller
     {
         $sql = 'SELECT  count(Cliente) AS Cantidad, Cliente FROM ventas where Sucursal = "Pradera Chimaltenango" GROUP BY Cliente LIMIT 1';
         $products = DB::select($sql);
-        return $products;
+        echo view('reportes.clienteFrecuente', ['products' => $products]);
     }
 
     public function ClienteFrecuenteMazatenango()
     {
         $sql = 'SELECT  count(Cliente) AS Cantidad, Cliente FROM ventas where Sucursal = "Las Américas Mazatenango" GROUP BY Cliente LIMIT 1';
         $products = DB::select($sql);
-        return $products;
+        echo view('reportes.clienteFrecuente', ['products' => $products]);
     }
 
     public function ClienteFrecuenteCoatepeque()
     {
         $sql = 'SELECT  count(Cliente) AS Cantidad, Cliente FROM ventas where Sucursal = "La Trinidad Coatepeque" GROUP BY Cliente LIMIT 1';
         $products = DB::select($sql);
-        return $products;
+        echo view('reportes.clienteFrecuente', ['products' => $products]);
     }
 
     public function ClienteFrecuenteXela()
     {
         $sql = 'SELECT  count(Cliente) AS Cantidad, Cliente FROM ventas where Sucursal = "Pradera Xela Quetzaltenango" GROUP BY Cliente LIMIT 1';
         $products = DB::select($sql);
-        return $products;
+        echo view('reportes.clienteFrecuente', ['products' => $products]);
     }
 
     public function ClienteFrecuenteEscuintla()
     {
         $sql = 'SELECT  count(Cliente) AS Cantidad, Cliente FROM ventas where Sucursal = "Pradera Escuintla" GROUP BY Cliente LIMIT 1';
         $products = DB::select($sql);
-        return $products;
+        echo view('reportes.clienteFrecuente', ['products' => $products]);
     }
 
     public function ClienteFrecuenteMiraflores()
     {
         $sql = 'SELECT  count(Cliente) AS Cantidad, Cliente FROM ventas where Sucursal = "Centro Comercial Miraflores CC" GROUP BY Cliente LIMIT 1';
         $products = DB::select($sql);
-        return $products;
+        echo view('reportes.clienteFrecuente', ['products' => $products]);
     }
 
     public function CompraPorFechas()
@@ -142,7 +142,7 @@ class ReporteController extends Controller
         END AS Mes,SUM(quantity) AS Cantidad FROM ventas WHERE MONTH(created_at) = @mes GROUP BY NAME LIMIT 1;
         ';
         $products = DB::select($sql);
-        return $products;
+        echo view('reportes.productoMasVendidoGeneral', ['products' => $products]);
     }
 
     public function productoMesChimaltenango()
@@ -165,7 +165,7 @@ class ReporteController extends Controller
              END AS Mes,SUM(quantity) AS Cantidad FROM ventas WHERE MONTH(created_at) = @mes AND Sucursal = "Pradera Chimaltenango" GROUP BY NAME LIMIT 1;
         ';
         $products = DB::select($sql);
-        return $products;
+        echo view('reportes.productoMasVendidoGeneral', ['products' => $products]);
     }
 
     public function productoMesEscuintla()
@@ -188,7 +188,7 @@ class ReporteController extends Controller
              END AS Mes,SUM(quantity) AS Cantidad FROM ventas WHERE MONTH(created_at) = @mes AND Sucursal = "Pradera Escuintla" GROUP BY NAME LIMIT 1;
         ';
         $products = DB::select($sql);
-        return $products;
+        echo view('reportes.productoMasVendidoGeneral', ['products' => $products]);
     }
 
     public function productoMesXela()
@@ -211,7 +211,7 @@ class ReporteController extends Controller
              END AS Mes,SUM(quantity) AS Cantidad FROM ventas WHERE MONTH(created_at) = @mes AND Sucursal = "Pradera Xela Quetzaltenango" GROUP BY NAME LIMIT 1;
         ';
         $products = DB::select($sql);
-        return $products;
+        echo view('reportes.productoMasVendidoGeneral', ['products' => $products]);
     }
 
     public function productoMesMazatenango()
@@ -234,7 +234,7 @@ class ReporteController extends Controller
              END AS Mes,SUM(quantity) AS Cantidad FROM ventas WHERE MONTH(created_at) = @mes AND Sucursal = "Las Américas Mazatenango" GROUP BY NAME LIMIT 1;
         ';
         $products = DB::select($sql);
-        return $products;
+        echo view('reportes.productoMasVendidoGeneral', ['products' => $products]);
     }
 
     public function productoMesCoatepeque()
@@ -257,7 +257,7 @@ class ReporteController extends Controller
              END AS Mes,SUM(quantity) AS Cantidad FROM ventas WHERE MONTH(created_at) = @mes AND Sucursal = "La Trinidad Coatepeque" GROUP BY NAME LIMIT 1;
         ';
         $products = DB::select($sql);
-        return $products;
+        echo view('reportes.productoMasVendidoGeneral', ['products' => $products]);
     }
 
     public function productoMesMiraflores()
@@ -280,6 +280,6 @@ class ReporteController extends Controller
              END AS Mes,SUM(quantity) AS Cantidad FROM ventas WHERE MONTH(created_at) = @mes AND Sucursal = "Centro Comercial Miraflores CC" GROUP BY NAME LIMIT 1;
         ';
         $products = DB::select($sql);
-        return $products;
+        echo view('reportes.productoMasVendidoGeneral', ['products' => $products]);
     }
 }

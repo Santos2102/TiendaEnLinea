@@ -13,6 +13,24 @@
                     <a class="nav-link" href="/">Reportes</a>
                 </li>
 
+                <div class="btn-group">
+                    <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"    aria-expanded="false">
+                        Top 100 de productos más vendidos
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/top100">General</a>
+                        <a class="dropdown-item" href="/top100PraderaChimaltenango">Pradera Chimaltenango</a>
+                        <a class="dropdown-item" href="/top100PraderaEscuintla">Pradera Escuintla</a>
+                        <a class="dropdown-item" href="/top100Mazatenango">Las Américas Mazatenango</a>
+                        <a class="dropdown-item" href="/top100LaTrinidad">La Trinidad Coatepeque</a>
+                        <a class="dropdown-item" href="/top100PraderaXela">Pradera Xela Quetzaltenango</a>
+                        <a class="dropdown-item" href="/top100Miraflores">Centro Comercial Miraflores CC</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Separated link</a>
+                </div>
+        </div>
+
+
             </ul>
             <ul class="navbar-nav ms-auto">
                 <!-- Authentication Links -->
