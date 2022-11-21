@@ -13,13 +13,13 @@
                     <a class="nav-link" href="/">Reportes</a>
                 </li>
                 <li class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false" v-pre>
-                    Top 100 Productos más vendidos
-                </a>
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" v-pre>
+                        Top 100 Productos más vendidos
+                    </a>
 
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="/top100">General</a>
+                            <a class="dropdown-item" href="/top100">General</a>
                             <a class="dropdown-item" href="/top100PraderaChimaltenango">Pradera Chimaltenango</a>
                             <a class="dropdown-item" href="/top100PraderaEscuintla">Pradera Escuintla</a>
                             <a class="dropdown-item" href="/top100Mazatenango">Las Américas Mazatenango</a>
@@ -27,6 +27,53 @@
                             <a class="dropdown-item" href="/top100PraderaXela">Pradera Xela Quetzaltenango</a>
                             <a class="dropdown-item" href="/top100Miraflores">Centro Comercial Miraflores CC</a>
                 </div>
+
+                
+                </li>
+            <li class="nav-item">
+                    <a class="nav-link" href="/ExistenciaMenor10">Existencia menor a 10 <a>
+            </li>
+
+            <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" v-pre>
+                        Productos más vendidos por mes 
+                    </a>
+
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/ProductoVendidoMes">General</a>
+                            <a class="dropdown-item" href="/ProductoVendidoMesChimaltenango">Pradera Chimaltenango</a>
+                            <a class="dropdown-item" href="/ProductoVendidoMesEscuintla">Pradera Escuintla</a>
+                            <a class="dropdown-item" href="/ProductoVendidoMesMazatenango">Las Américas Mazatenango</a>
+                            <a class="dropdown-item" href="/ProductoVendidoMesCoatepeque">La Trinidad Coatepeque</a>
+                            <a class="dropdown-item" href="/ProductoVendidoMesXela">Pradera Xela Quetzaltenango</a>
+                            <a class="dropdown-item" href="/ProductoVendidoMesMiraflores">Centro Comercial Miraflores CC</a>
+                </div>
+
+                
+            </li>
+
+            <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" v-pre>
+                        Clientes Frecuentes
+                    </a>
+
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/ClienteFrecuente">General</a>
+                            <a class="dropdown-item" href="/ClienteFrecuenteChimaltenango">Pradera Chimaltenango</a>
+                            <a class="dropdown-item" href="/ClienteFrecuenteEscuintla">Pradera Escuintla</a>
+                            <a class="dropdown-item" href="/ClienteFrecuenteMazatenango">Las Américas Mazatenango</a>
+                            <a class="dropdown-item" href=/ClienteFrecuenteCoatepeque">La Trinidad Coatepeque</a>
+                            <a class="dropdown-item" href="/ClienteFrecuenteXela">Pradera Xela Quetzaltenango</a>
+                            <a class="dropdown-item" href="/ClienteFrecuenteMiraflores">Centro Comercial Miraflores CC</a>
+                </div>
+
+                
+            </li>
+
+            <li class="nav-item">
+                    <a class="nav-link" href="/ComprasEntreFechas">Compras por rango de fecha<a>
             </li>
         </div>
 
