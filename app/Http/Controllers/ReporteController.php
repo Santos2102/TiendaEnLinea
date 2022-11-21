@@ -288,48 +288,48 @@ class ReporteController extends Controller
         $sql = 'SELECT * FROM ventas 
         ';
         $products = DB::select($sql);
-        echo view('reportes.productoMasVendidoGeneral', ['products' => $products]);
+        echo view('reportes.ventas', ['products' => $products]);
     }
 
     public function ventasChimaltenango()
     {
         $sql = 'SELECT * FROM ventas WHERE Sucursal = "Pradera Chimaltenango"';
         $products = DB::select($sql);
-        echo view('reportes.productoMasVendidoGeneral', ['products' => $products]);
+        echo view('reportes.ventas', ['products' => $products]);
     }
 
     public function ventasEscuintla()
     {
         $sql = 'SELECT * FROM ventas WHERE Sucursal = "Pradera Escuintla"';
         $products = DB::select($sql);
-        echo view('reportes.productoMasVendidoGeneral', ['products' => $products]);
+        echo view('reportes.ventas', ['products' => $products]);
     }
 
     public function ventasMazatenango()
     {
         $sql = 'SELECT * FROM ventas WHERE Sucursal = "Las Américas Mazatenango"';
         $products = DB::select($sql);
-        echo view('reportes.productoMasVendidoGeneral', ['products' => $products]);
+        echo view('reportes.ventas', ['products' => $products]);
     }
 
     public function ventasXela()
     {
         $sql = 'SELECT * FROM ventas WHERE Sucursal = "Pradera Xela Quetzaltenango"';
         $products = DB::select($sql);
-        echo view('reportes.productoMasVendidoGeneral', ['products' => $products]);
+        echo view('reportes.ventas', ['products' => $products]);
     }
 
     public function ventasMiraflores()
     {
         $sql = 'SELECT * FROM ventas WHERE Sucursal = "Centro Comercial Miraflores CC"';
         $products = DB::select($sql);
-        echo view('reportes.productoMasVendidoGeneral', ['products' => $products]);
+        echo view('reportes.ventas', ['products' => $products]);
     }
 
     public function ventasCoatepeque()
     {
         $sql = 'SELECT * FROM ventas WHERE Sucursal = "La Trinidad Coatepeque"';
         $products = DB::select($sql);
-        echo view('reportes.productoMasVendidoGeneral', ['products' => $products]);
+        echo view('reportes.ventas', ['products' => $products]);
     }
 }

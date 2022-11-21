@@ -64,7 +64,7 @@
                             <a class="dropdown-item" href="/ClienteFrecuenteChimaltenango">Pradera Chimaltenango</a>
                             <a class="dropdown-item" href="/ClienteFrecuenteEscuintla">Pradera Escuintla</a>
                             <a class="dropdown-item" href="/ClienteFrecuenteMazatenango">Las Américas Mazatenango</a>
-                            <a class="dropdown-item" href=/ClienteFrecuenteCoatepeque">La Trinidad Coatepeque</a>
+                            <a class="dropdown-item" href="/ClienteFrecuenteCoatepeque">La Trinidad Coatepeque</a>
                             <a class="dropdown-item" href="/ClienteFrecuenteXela">Pradera Xela Quetzaltenango</a>
                             <a class="dropdown-item" href="/ClienteFrecuenteMiraflores">Centro Comercial Miraflores CC</a>
                 </div>
@@ -75,6 +75,26 @@
             <li class="nav-item">
                     <a class="nav-link" href="/ComprasEntreFechas">Compras por rango de fecha<a>
             </li>
+
+            <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" v-pre>
+                        Historial de Ventas
+                    </a>
+
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/VentasGeneral">General</a>
+                            <a class="dropdown-item" href="/ventasChimaltenango">Pradera Chimaltenango</a>
+                            <a class="dropdown-item" href="/ventasEscuintla">Pradera Escuintla</a>
+                            <a class="dropdown-item" href="/ventasMazatenango">Las Américas Mazatenango</a>
+                            <a class="dropdown-item" href="/ventasCoatepeque">La Trinidad Coatepeque</a>
+                            <a class="dropdown-item" href="/ventasXela">Pradera Xela Quetzaltenango</a>
+                            <a class="dropdown-item" href="/ventasMiraflores">Centro Comercial Miraflores CC</a>
+                </div>
+
+                
+            </li>
+
         </div>
 
 
