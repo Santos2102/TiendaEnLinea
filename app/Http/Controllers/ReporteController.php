@@ -124,7 +124,7 @@ class ReporteController extends Controller
 
     public function productoMes()
     {
-        DB::statement( DB::raw( 'SET @mes = 11'));
+        DB::statement(DB::raw('SET @mes = 11'));
         $sql = 'SELECT  NAME,CASE
             WHEN @mes = 1 THEN "ENERO"
             WHEN @mes = 2 THEN "FEBRERO"
@@ -147,7 +147,7 @@ class ReporteController extends Controller
 
     public function productoMesChimaltenango()
     {
-        DB::statement( DB::raw( 'SET @mes = 11'));
+        DB::statement(DB::raw('SET @mes = 11'));
         $sql = 'SELECT  NAME,CASE
             WHEN @mes = 1 THEN "ENERO"
             WHEN @mes = 2 THEN "FEBRERO"
@@ -170,7 +170,7 @@ class ReporteController extends Controller
 
     public function productoMesEscuintla()
     {
-        DB::statement( DB::raw( 'SET @mes = 11'));
+        DB::statement(DB::raw('SET @mes = 11'));
         $sql = 'SELECT  NAME,CASE
             WHEN @mes = 1 THEN "ENERO"
             WHEN @mes = 2 THEN "FEBRERO"
@@ -193,7 +193,7 @@ class ReporteController extends Controller
 
     public function productoMesXela()
     {
-        DB::statement( DB::raw( 'SET @mes = 11'));
+        DB::statement(DB::raw('SET @mes = 11'));
         $sql = 'SELECT  NAME,CASE
             WHEN @mes = 1 THEN "ENERO"
             WHEN @mes = 2 THEN "FEBRERO"
@@ -216,7 +216,7 @@ class ReporteController extends Controller
 
     public function productoMesMazatenango()
     {
-        DB::statement( DB::raw( 'SET @mes = 11'));
+        DB::statement(DB::raw('SET @mes = 11'));
         $sql = 'SELECT  NAME,CASE
             WHEN @mes = 1 THEN "ENERO"
             WHEN @mes = 2 THEN "FEBRERO"
@@ -239,7 +239,7 @@ class ReporteController extends Controller
 
     public function productoMesCoatepeque()
     {
-        DB::statement( DB::raw( 'SET @mes = 11'));
+        DB::statement(DB::raw('SET @mes = 11'));
         $sql = 'SELECT  NAME,CASE
             WHEN @mes = 1 THEN "ENERO"
             WHEN @mes = 2 THEN "FEBRERO"
@@ -262,7 +262,7 @@ class ReporteController extends Controller
 
     public function productoMesMiraflores()
     {
-        DB::statement( DB::raw( 'SET @mes = 11'));
+        DB::statement(DB::raw('SET @mes = 11'));
         $sql = 'SELECT  NAME,CASE
             WHEN @mes = 1 THEN "ENERO"
             WHEN @mes = 2 THEN "FEBRERO"
@@ -331,5 +331,18 @@ class ReporteController extends Controller
         $sql = 'SELECT * FROM ventas WHERE Sucursal = "La Trinidad Coatepeque"';
         $products = DB::select($sql);
         echo view('reportes.ventas', ['products' => $products]);
+    }
+
+    public function grafica()
+    {
+        $sql = 'SELECT  NAME, SUM(quantity) AS Cantidad FROM ventas GROUP BY NAME ORDER BY Cantidad LIMIT 5';
+        $products = DB::table('Ventas')->get();
+        $puntos = [];
+
+        foreach ($products as $products) {
+            $VariableArregloVacio[] = ['name' => $products->{'name'}, 'y' => $products->{'quantity'}];
+        }
+
+        return view("graficos", ["data" => json_encode($puntos)]);
     }
 }

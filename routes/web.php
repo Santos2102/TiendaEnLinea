@@ -76,6 +76,8 @@ Route::get('/ventasXela', [ReporteController::class, 'ventasXela'])->name('repor
 Route::get('/ventasMazatenango', [ReporteController::class, 'ventasMazatenango'])->name('reporte.ventasMazatenango');
 Route::get('/ventasMiraflores', [ReporteController::class, 'ventasMiraflores'])->name('reporte.ventasMiraflores');
 Route::get('/ventasCoatepeque', [ReporteController::class, 'ventasCoatepeque'])->name('reporte.ventasCoatepeque');
+//Reporte Graficos
+Route::get('graficos', [ReporteController::class, 'grafica']);
 
 Route::post('login', function(){
     $credentials = request()->only('email','password');

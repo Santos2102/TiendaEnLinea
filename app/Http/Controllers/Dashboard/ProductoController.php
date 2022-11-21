@@ -17,7 +17,7 @@ class ProductoController extends Controller
     public function index()
     {
         //
-        $producto=Producto::orderby('created_at','asc') -> cursorpaginate(5);
+        $producto=Producto::all();
         echo view ('producto.index',['producto'=>$producto]);
     }
 

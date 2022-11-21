@@ -13,6 +13,9 @@
 
     <title>Store Online S.A</title>
     @include('partials.navbar_gerente')
+    <br>
+    <br>
+    <br>
 </head>
 <body style="background-image: url('/Assets/Image/fondo.jpg');background-attachment: fixed;">
     <header >
@@ -114,9 +117,9 @@
                             </td>
 
                             <td>
-                                <a href="{{route('gerente.show',$producto->id)}}" class="btn btn-success">Ver</a>
-                                <a href="{{route('gerente.edit',$producto->id)}}" class="btn btn-warning">Editar</a>
-                                <form method="post" action="{{route('gerente.destroy',$producto->id)}}">
+                                <a href="{{route('producto.show',$producto->id)}}" class="btn btn-success">Ver</a>
+                                <a href="{{route('producto.edit',$producto->id)}}" class="btn btn-warning">Editar</a>
+                                <form method="post" action="{{route('producto.destroy',$producto->id)}}">
                                     @method('DELETE')
                                     @csrf
                                     <button class="btn btn-danger" type="submit">Borrar</button>

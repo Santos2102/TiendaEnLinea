@@ -29,7 +29,7 @@ class GerenteController extends Controller
     public function create()
     {
         //
-        echo view ('producto.createG',["producto"=> new producto()]);
+        echo view ('producto.create',["producto"=> new producto()]);
     }
 
     /**
