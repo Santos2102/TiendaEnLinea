@@ -27,11 +27,10 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
 //Reporte Graficos
 Route::get('graficos', [ReporteController::class, 'grafica']);
 
-/*Route::post('login', function(){
+Route::post('login', function(){
     $credentials = request()->only('email','password');
     $temporal = Arr::get($credentials,'email');
     echo $temporal;
@@ -49,13 +48,10 @@ Route::get('graficos', [ReporteController::class, 'grafica']);
         }
         else {
             request()->session()->regenerate();
-            return redirect('/');
+            return redirect()->action([CartController::class,'shop']);
         }
     }
-});*/
-Auth::routes();
-
-Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
+});
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
