@@ -1,33 +1,65 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+
+
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ $title ?? 'Store Online S.A.' }}</title>
-    <link rel="stylesheet" href={{ url('css/app.css') }}>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT
-2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('paper') }}/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="{{ asset('paper') }}/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <!-- Extra details for Live View on GitHub Pages -->
+    
+    <title>
+        {{ __('Paper Dashboard by Creative Tim') }}
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+        name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <!-- CSS Files -->
+    <link href="{{ asset('paper') }}/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="{{ asset('paper') }}/css/paper-dashboard.css?v=2.0.0" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="{{ asset('paper') }}/demo/demo.css" rel="stylesheet" />
+
 </head>
 
-<body>
-    <div id="app">
-        @include('partials.navbar')
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+<body class="{{ $class }}">
+    
+    @auth()
+        @include('layouts.page_templates.auth')
+        @include('layouts.navbars.fixed-plugin')
+    @endauth
+    
+    @guest
+        @include('layouts.page_templates.guest')
+    @endguest
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi
-6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86
-dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07j
-RM" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--   Core JS Files   -->
+    <script src="{{ asset('paper') }}/js/core/jquery.min.js"></script>
+    <script src="{{ asset('paper') }}/js/core/popper.min.js"></script>
+    <script src="{{ asset('paper') }}/js/core/bootstrap.min.js"></script>
+    <script src="{{ asset('paper') }}/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <!--  Google Maps Plugin    -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+    <!-- Chart JS -->
+    <script src="{{ asset('paper') }}/js/plugins/chartjs.min.js"></script>
+    <!--  Notifications Plugin    -->
+    <script src="{{ asset('paper') }}/js/plugins/bootstrap-notify.js"></script>
+    <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="{{ asset('paper') }}/js/paper-dashboard.min.js?v=2.0.0" type="text/javascript"></script>
+    <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+    <script src="{{ asset('paper') }}/demo/demo.js"></script>
+    <!-- Sharrre libray -->
+    <script src="../assets/demo/jquery.sharrre.js"></script>
+    
+    @stack('scripts')
+
+    @include('layouts.navbars.fixed-plugin-js')
 </body>
 
 </html>
