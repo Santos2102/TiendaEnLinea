@@ -28,7 +28,7 @@
 
 </head>
 
-<body class="{{ $class }}">
+<body>
     
     @auth()
         @include('layouts.page_templates.auth')

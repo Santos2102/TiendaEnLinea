@@ -38,7 +38,7 @@
                                         <i class="nc-icon nc-single-02"></i>
                                     </span>
                                 </div>
-                                <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="{{ __('Password') }}" type="password" required>
+                                <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="{{ __('Contraseña') }}" type="password" required>
                                 
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback" style="display: block;" role="alert">
@@ -52,7 +52,7 @@
                                      <label class="form-check-label">
                                         <input class="form-check-input" name="remember" type="checkbox" value="" {{ old('remember') ? 'checked' : '' }}>
                                         <span class="form-check-sign"></span>
-                                        {{ __('Remember me') }}
+                                        {{ __('Recordarme') }}
                                     </label>
                                 </div>
                             </div>
@@ -60,16 +60,16 @@
 
                         <div class="card-footer">
                             <div class="text-center">
-                                <button type="submit" class="btn btn-warning btn-round mb-3">{{ __('Sign in') }}</button>
+                                <button type="submit" class="btn btn-warning btn-round mb-3">{{ __('Ingresar') }}</button>
                             </div>
                         </div>
                     </div>
                 </form>
                 <a href="{{ route('password.request') }}" class="btn btn-link">
-                    {{ __('Forgot password') }}
+                    {{ __('Olvide mi contraseña') }}
                 </a>
                 <a href="{{ route('register') }}" class="btn btn-link float-right">
-                    {{ __('Create Account') }}
+                    {{ __('Crear cuenta') }}
                 </a>
             </div>
         </div>

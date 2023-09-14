@@ -183,7 +183,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Darryldecode\Cart\CartServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
-
+        LaravelFrontendPresets\PaperPreset\PaperPresetServiceProvider::class,
         /*
          * Package Service Providers...
          */
