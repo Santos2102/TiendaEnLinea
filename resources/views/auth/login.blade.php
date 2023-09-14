@@ -1,6 +1,6 @@
 @extends('layouts.app', [
     'class' => 'login-page',
-    'backgroundImagePath' => 'img/bg/fabio-mangione.jpg'
+    'backgroundImagePath' => 'img/bg/fondo2.jpg'
 ])
 
 @section('content')
@@ -60,7 +60,11 @@
 
                         <div class="card-footer">
                             <div class="text-center">
+<<<<<<< HEAD
                                 <button type="submit" class="btn btn-warning btn-round mb-3">{{ __('Ingresar') }}</button>
+=======
+                                <button type="submit" class="btn btn-dark btn-round mb-3">{{ __('Sign in') }}</button>
+>>>>>>> e8d1e55b99a6771acc2033ff559def4254e43e84
                             </div>
                         </div>
                     </div>

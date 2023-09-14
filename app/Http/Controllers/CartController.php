@@ -12,11 +12,9 @@ class CartController extends Controller
     {
         $products = Producto::all();
         //dd($products);
-        return view('shop')->withTitle('Store Online S.A.')->with([
-            'products' =>
-            $products
-        ]);
+        return view('shop',compact('products'));
     }
+    
     public function cart()
     {
         $cartCollection = \Cart::getContent();
