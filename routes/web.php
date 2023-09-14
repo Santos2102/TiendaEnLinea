@@ -20,7 +20,7 @@ use App\Http\Controllers\ReporteController;
 */
 
 Route::get('/', function () {
-    return "Hola";
+    return view('auth.login');
 });
 
 Auth::routes();
@@ -119,4 +119,3 @@ Route::group(['middleware' => 'auth'], function () {
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('{page}', ['as' => 'page.index', 'uses' => 'App\Http\Controllers\PageController@index']);
 });
-
