@@ -12,7 +12,7 @@
                     <div class="card card-login">
                         <div class="card-header ">
                             <div class="card-header ">
-                                <h3 class="header text-center">{{ __('Login') }}</h3>
+                                <h3 class="header text-center">{{ __('Iniciar sesión') }}</h3>
                             </div>
                         </div>
                         <div class="card-body ">
