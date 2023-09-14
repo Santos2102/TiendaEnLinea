@@ -20,14 +20,16 @@ use App\Http\Controllers\ReporteController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return "Hola";
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/', [CartController::class, 'shop'])->name('shop');
+Route::get('/', function () {
+    return view('auth.login');
+});
 Route::get('/cart', [CartController::class, 'cart'])->name('cart.index');
 Route::post('/add', [CartController::class, 'add'])->name('cart.store');
 Route::post('/update', [CartController::class, 'update'])->name('cart.update');
