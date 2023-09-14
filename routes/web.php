@@ -27,59 +27,11 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/', [CartController::class, 'shop'])->name('shop');
-Route::get('/cart', [CartController::class, 'cart'])->name('cart.index');
-Route::post('/add', [CartController::class, 'add'])->name('cart.store');
-Route::post('/update', [CartController::class, 'update'])->name('cart.update');
-Route::post('/remove', [CartController::class, 'remove'])->name('cart.remove');
-Route::post('/clear', [CartController::class, 'clear'])->name('cart.clear');
-Route::resource('producto', ProductoController::class);
-Route::resource('cliente', ClienteController::class);
-Route::resource('gerente', GerenteController::class);
-Route::resource('venta', VentaController::class);
-Route::get('download-pdf',[CartController::class,'downloadPDF'])->name('download-pdf');
-Route::get('contactanos', [GoogleController::class, 'index']);
 
-//Rutas de Reportes TOP 100
-Route::get('/top100', [ReporteController::class, 'generalTOP100'])->name('reporte.reporte');
-Route::get('/top100Mazatenango', [ReporteController::class, 'sucursalMazatenangoTOP100'])->name('reporte.100Mazatenango');
-Route::get('/top100PraderaXela', [ReporteController::class, 'sucursalPraderaXelaTOP100'])->name('reporte.100PraderaXela');
-Route::get('/top100PraderaChimaltenango', [ReporteController::class, 'sucursalPraderaChimaltenangoTOP100'])->name('reporte.100PraderaChimaltenango');
-Route::get('/top100PraderaEscuintla', [ReporteController::class, 'sucursalPraderaEscuintlaTOP100'])->name('reporte.100PraderaEscuintla');
-Route::get('/top100LaTrinidad', [ReporteController::class, 'sucursalLaTrinidadTOP100'])->name('reporte.100LaTrinidad');
-Route::get('/top100Miraflores', [ReporteController::class, 'sucursalMirafloresTOP100'])->name('reporte.100Miraflores');
-//Reporte Menor existencia
-Route::get('/ExistenciaMenor10', [ReporteController::class, 'menosExistencia'])->name('reporte.menorExistencia');
-//Reportes Cliente Frecuente
-Route::get('/ClienteFrecuente', [ReporteController::class, 'ClienteFrecuente'])->name('reporte.ClienteFrecuente');
-Route::get('/ClienteFrecuenteChimaltenango', [ReporteController::class, 'ClienteFrecuenteChimaltenango'])->name('reporte.ClienteFrecuenteChimaltenango');
-Route::get('/ClienteFrecuenteEscuintla', [ReporteController::class, 'ClienteFrecuenteEscuintla'])->name('reporte.ClienteFrecuenteEscuintla');
-Route::get('/ClienteFrecuenteMazatenango', [ReporteController::class, 'ClienteFrecuenteMazatenango'])->name('reporte.ClienteFrecuenteMazatenango');
-Route::get('/ClienteFrecuenteCoatepeque', [ReporteController::class, 'ClienteFrecuenteCoatepeque'])->name('reporte.ClienteFrecuenteCoatepeque');
-Route::get('/ClienteFrecuenteXela', [ReporteController::class, 'ClienteFrecuenteXela'])->name('reporte.ClienteFrecuenteXela');
-Route::get('/ClienteFrecuenteMiraflores', [ReporteController::class, 'ClienteFrecuenteMiraflores'])->name('reporte.ClienteFrecuenteMiraflores');
-//Reporte compra entre fechas
-Route::get('/ComprasEntreFechas', [ReporteController::class, 'CompraPorFechas'])->name('reporte.CompraEntreFechas');
-//Reporte Producto mas vendido
-Route::get('/ProductoVendidoMes', [ReporteController::class, 'productoMes'])->name('reporte.productoMes');
-Route::get('/ProductoVendidoMesChimaltenango', [ReporteController::class, 'productoMesChimaltenango'])->name('reporte.productoMesChimaltenango');
-Route::get('/ProductoVendidoMesEscuintla', [ReporteController::class, 'productoMesEscuintla'])->name('reporte.productoMesEscuintla');
-Route::get('/ProductoVendidoMesXela', [ReporteController::class, 'productoMesXela'])->name('reporte.productoMesXela');
-Route::get('/ProductoVendidoMesMazatenango', [ReporteController::class, 'productoMesMazatenango'])->name('reporte.productoMesMazatenango');
-Route::get('/ProductoVendidoMesCoatepeque', [ReporteController::class, 'productoMesCoatepeque'])->name('reporte.productoMesCoatepeque');
-Route::get('/ProductoVendidoMesMiraflores', [ReporteController::class, 'productoMesMiraflores'])->name('reporte.productoMesMiraflores');
-//Reporte de Ventas
-Route::get('/VentasGeneral', [ReporteController::class, 'VentasGeneral'])->name('reporte.VentasGeneral');
-Route::get('/ventasChimaltenango', [ReporteController::class, 'ventasChimaltenango'])->name('reporte.ventasChimaltenango');
-Route::get('/ventasEscuintla', [ReporteController::class, 'ventasEscuintla'])->name('reporte.ventasEscuintla');
-Route::get('/ventasXela', [ReporteController::class, 'ventasXela'])->name('reporte.ventasXela');
-Route::get('/ventasMazatenango', [ReporteController::class, 'ventasMazatenango'])->name('reporte.ventasMazatenango');
-Route::get('/ventasMiraflores', [ReporteController::class, 'ventasMiraflores'])->name('reporte.ventasMiraflores');
-Route::get('/ventasCoatepeque', [ReporteController::class, 'ventasCoatepeque'])->name('reporte.ventasCoatepeque');
 //Reporte Graficos
 Route::get('graficos', [ReporteController::class, 'grafica']);
 
-Route::post('login', function(){
+/*Route::post('login', function(){
     $credentials = request()->only('email','password');
     $temporal = Arr::get($credentials,'email');
     echo $temporal;
@@ -100,7 +52,8 @@ Route::post('login', function(){
             return redirect('/');
         }
     }
-});Auth::routes();
+});*/
+Auth::routes();
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 
@@ -109,6 +62,58 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
+
+    Route::get('/', [CartController::class, 'shop'])->name('shop');
+    Route::get('/cart', [CartController::class, 'cart'])->name('cart.index');
+    Route::post('/add', [CartController::class, 'add'])->name('cart.store');
+    Route::post('/update', [CartController::class, 'update'])->name('cart.update');
+    Route::post('/remove', [CartController::class, 'remove'])->name('cart.remove');
+    Route::post('/clear', [CartController::class, 'clear'])->name('cart.clear');
+    Route::resource('producto', ProductoController::class);
+    Route::resource('cliente', ClienteController::class);
+    Route::resource('gerente', GerenteController::class);
+    Route::resource('venta', VentaController::class);
+    Route::get('download-pdf',[CartController::class,'downloadPDF'])->name('download-pdf');
+    Route::get('contactanos', [GoogleController::class, 'index']);
+    
+    //Rutas de Reportes TOP 100
+    Route::get('/top100', [ReporteController::class, 'generalTOP100'])->name('reporte.reporte');
+    Route::get('/top100Mazatenango', [ReporteController::class, 'sucursalMazatenangoTOP100'])->name('reporte.100Mazatenango');
+    Route::get('/top100PraderaXela', [ReporteController::class, 'sucursalPraderaXelaTOP100'])->name('reporte.100PraderaXela');
+    Route::get('/top100PraderaChimaltenango', [ReporteController::class, 'sucursalPraderaChimaltenangoTOP100'])->name('reporte.100PraderaChimaltenango');
+    Route::get('/top100PraderaEscuintla', [ReporteController::class, 'sucursalPraderaEscuintlaTOP100'])->name('reporte.100PraderaEscuintla');
+    Route::get('/top100LaTrinidad', [ReporteController::class, 'sucursalLaTrinidadTOP100'])->name('reporte.100LaTrinidad');
+    Route::get('/top100Miraflores', [ReporteController::class, 'sucursalMirafloresTOP100'])->name('reporte.100Miraflores');
+    //Reporte Menor existencia
+    Route::get('/ExistenciaMenor10', [ReporteController::class, 'menosExistencia'])->name('reporte.menorExistencia');
+    //Reportes Cliente Frecuente
+    Route::get('/ClienteFrecuente', [ReporteController::class, 'ClienteFrecuente'])->name('reporte.ClienteFrecuente');
+    Route::get('/ClienteFrecuenteChimaltenango', [ReporteController::class, 'ClienteFrecuenteChimaltenango'])->name('reporte.ClienteFrecuenteChimaltenango');
+    Route::get('/ClienteFrecuenteEscuintla', [ReporteController::class, 'ClienteFrecuenteEscuintla'])->name('reporte.ClienteFrecuenteEscuintla');
+    Route::get('/ClienteFrecuenteMazatenango', [ReporteController::class, 'ClienteFrecuenteMazatenango'])->name('reporte.ClienteFrecuenteMazatenango');
+    Route::get('/ClienteFrecuenteCoatepeque', [ReporteController::class, 'ClienteFrecuenteCoatepeque'])->name('reporte.ClienteFrecuenteCoatepeque');
+    Route::get('/ClienteFrecuenteXela', [ReporteController::class, 'ClienteFrecuenteXela'])->name('reporte.ClienteFrecuenteXela');
+    Route::get('/ClienteFrecuenteMiraflores', [ReporteController::class, 'ClienteFrecuenteMiraflores'])->name('reporte.ClienteFrecuenteMiraflores');
+    //Reporte compra entre fechas
+    Route::get('/ComprasEntreFechas', [ReporteController::class, 'CompraPorFechas'])->name('reporte.CompraEntreFechas');
+    //Reporte Producto mas vendido
+    Route::get('/ProductoVendidoMes', [ReporteController::class, 'productoMes'])->name('reporte.productoMes');
+    Route::get('/ProductoVendidoMesChimaltenango', [ReporteController::class, 'productoMesChimaltenango'])->name('reporte.productoMesChimaltenango');
+    Route::get('/ProductoVendidoMesEscuintla', [ReporteController::class, 'productoMesEscuintla'])->name('reporte.productoMesEscuintla');
+    Route::get('/ProductoVendidoMesXela', [ReporteController::class, 'productoMesXela'])->name('reporte.productoMesXela');
+    Route::get('/ProductoVendidoMesMazatenango', [ReporteController::class, 'productoMesMazatenango'])->name('reporte.productoMesMazatenango');
+    Route::get('/ProductoVendidoMesCoatepeque', [ReporteController::class, 'productoMesCoatepeque'])->name('reporte.productoMesCoatepeque');
+    Route::get('/ProductoVendidoMesMiraflores', [ReporteController::class, 'productoMesMiraflores'])->name('reporte.productoMesMiraflores');
+    //Reporte de Ventas
+    Route::get('/VentasGeneral', [ReporteController::class, 'VentasGeneral'])->name('reporte.VentasGeneral');
+    Route::get('/ventasChimaltenango', [ReporteController::class, 'ventasChimaltenango'])->name('reporte.ventasChimaltenango');
+    Route::get('/ventasEscuintla', [ReporteController::class, 'ventasEscuintla'])->name('reporte.ventasEscuintla');
+    Route::get('/ventasXela', [ReporteController::class, 'ventasXela'])->name('reporte.ventasXela');
+    Route::get('/ventasMazatenango', [ReporteController::class, 'ventasMazatenango'])->name('reporte.ventasMazatenango');
+    Route::get('/ventasMiraflores', [ReporteController::class, 'ventasMiraflores'])->name('reporte.ventasMiraflores');
+    Route::get('/ventasCoatepeque', [ReporteController::class, 'ventasCoatepeque'])->name('reporte.ventasCoatepeque');
+
+
 });
 
 Route::group(['middleware' => 'auth'], function () {
