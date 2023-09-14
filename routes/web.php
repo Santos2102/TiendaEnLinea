@@ -20,7 +20,7 @@ use App\Http\Controllers\ReporteController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return "Hola";
 });
 
 Auth::routes();
