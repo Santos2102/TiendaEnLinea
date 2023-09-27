@@ -5,14 +5,18 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('paper') }}/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="{{ asset('paper') }}/img/favicon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('paper') }}/img/tecsp.png">
+    <link rel="icon" type="image/png" href="{{ asset('paper') }}/img/tecsp.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
     <!-- Extra details for Live View on GitHub Pages -->
     
     <title>
+<<<<<<< HEAD
         {{ __('Store Online') }}
+=======
+        {{ __('TECSP') }}
+>>>>>>> 988298f31921a27f39bda9c97c1b3f029e594dae
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
         name='viewport' />

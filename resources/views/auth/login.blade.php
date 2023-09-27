@@ -12,7 +12,7 @@
                     <div class="card card-login">
                         <div class="card-header ">
                             <div class="card-header ">
-                                <h3 class="header text-center">{{ __('Login') }}</h3>
+                                <h3 class="header text-center">{{ __('Iniciar sesión') }}</h3>
                             </div>
                         </div>
                         <div class="card-body ">
@@ -23,7 +23,7 @@
                                         <i class="nc-icon nc-single-02"></i>
                                     </span>
                                 </div>
-                                <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}" type="email" name="email" value="{{ old('email') }}" required autofocus>
+                                <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Correo') }}" type="email" name="email" value="{{ old('email') }}" required autofocus>
                                 
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback" style="display: block;" role="alert">
