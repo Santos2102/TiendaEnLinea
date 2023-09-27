@@ -63,8 +63,5 @@
         </div>
     </div>
 
-    <footer>
-        @include('partials._footer')
-    </footer>
 </div>
 @endsection
