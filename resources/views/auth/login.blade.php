@@ -60,7 +60,7 @@
 
                         <div class="card-footer">
                             <div class="text-center">
-                                <button type="submit" class="btn btn-warning btn-round mb-3">{{ __('Ingresar') }}</button>
+                                <button type="submit" class="btn btn-dark btn-round mb-3">{{ __('Ingresar') }}</button>
                             </div>
                         </div>
                     </div>
