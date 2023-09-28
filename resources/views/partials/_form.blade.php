@@ -25,7 +25,7 @@
                         
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <label class="sub" ><b>Precio:</b></label><br>
-                        <input class="fo" id="exampleFormControlTextarea1" placeholder="Ingrese precio" aria-label="Disabled input example"  rows="1" type="text" name="price" value ="{{old('price',$producto->price)}}"><br>
+                        <input class="fo" id="exampleFormControlTextarea1" placeholder="Ingrese precio" aria-label="Disabled input example"  rows="1" type="number" name="price" value ="{{old('price',$producto->price)}}"><br>
                         @error('price')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
@@ -34,7 +34,7 @@
 
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <label class="sub" ><b>Existencia:</b></label><br>
-                        <input class="fo" id="exampleFormControlTextarea1" placeholder="Ingrese Existencia " aria-label="Disabled input example"  rows="1" type="text" name="shipping_cost" value ="{{old('shipping_cost',$producto->shipping_cost)}}"><br>
+                        <input class="fo" id="exampleFormControlTextarea1" placeholder="Ingrese Existencia " aria-label="Disabled input example"  rows="1" type="number" name="shipping_cost" value ="{{old('shipping_cost',$producto->shipping_cost)}}"><br>
                         @error('shipping_cost')
                             <small class="text-danger">{{$message}}</small>
                         @enderror 

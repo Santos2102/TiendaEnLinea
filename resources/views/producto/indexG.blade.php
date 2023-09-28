@@ -5,7 +5,7 @@
         <a class="btn btn-primary" href="{{route('gerente.create')}}">Crear</a>
         <br>
         <br>
-            <table class="table table-striped">
+            <table class="table table-responsive">
                 <thead class="table-dark">
                 <tr>
                             <td>
@@ -37,12 +37,6 @@
                             </td>
                             <td>
                                 Imagen
-                            </td>
-                            <td>
-                                Creacion
-                            </td>
-                            <td>
-                                Actualizado
                             </td>
                             <td>
                                 Acciones
@@ -84,12 +78,6 @@
                             </td>
                             <td>
                                 <img src="Assets/Productos/{{$producto->image_path}}" width="150">
-                            </td>
-                            <td>
-                                {{$producto->created_at->format('d-m-Y')}}
-                            </td>
-                            <td>
-                                {{$producto->updated_at->format('d-m-Y')}}
                             </td>
 
                             <td>

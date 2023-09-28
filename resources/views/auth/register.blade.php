@@ -23,7 +23,7 @@
                                             <i class="nc-icon nc-single-02"></i>
                                         </span>
                                     </div>
-                                    <input name="name" type="text" class="form-control" placeholder="Name" value="{{ old('name') }}" required autofocus>
+                                    <input name="name" type="text" class="form-control" placeholder="Nombre" value="{{ old('name') }}" required autofocus>
                                     @if ($errors->has('name'))
                                         <span class="invalid-feedback" style="display: block;" role="alert">
                                             <strong>{{ $errors->first('name') }}</strong>
@@ -36,7 +36,7 @@
                                             <i class="nc-icon nc-email-85"></i>
                                         </span>
                                     </div>
-                                    <input name="email" type="email" class="form-control" placeholder="Email" required value="{{ old('email') }}">
+                                    <input name="email" type="email" class="form-control" placeholder="Correo" required value="{{ old('email') }}">
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback" style="display: block;" role="alert">
                                             <strong>{{ $errors->first('email') }}</strong>
@@ -49,7 +49,7 @@
                                             <i class="nc-icon nc-key-25"></i>
                                         </span>
                                     </div>
-                                    <input name="password" type="password" class="form-control" placeholder="Password" required>
+                                    <input name="password" type="password" class="form-control" placeholder="Contraseña" required>
                                     @if ($errors->has('password'))
                                         <span class="invalid-feedback" style="display: block;" role="alert">
                                             <strong>{{ $errors->first('password') }}</strong>
@@ -62,7 +62,7 @@
                                             <i class="nc-icon nc-key-25"></i>
                                         </span>
                                     </div>
-                                    <input name="password_confirmation" type="password" class="form-control" placeholder="Password confirmation" required>
+                                    <input name="password_confirmation" type="password" class="form-control" placeholder="Confirmar contraseña" required>
                                     @if ($errors->has('password_confirmation'))
                                         <span class="invalid-feedback" style="display: block;" role="alert">
                                             <strong>{{ $errors->first('password_confirmation') }}</strong>
@@ -73,8 +73,8 @@
                                     <label class="form-check-label">
                                         <input class="form-check-input" name="agree_terms_and_conditions" type="checkbox">
                                         <span class="form-check-sign"></span>
-                                            {{ __('I agree to the') }}
-                                        <a href="#something">{{ __('terms and conditions') }}</a>.
+                                            {{ __('Estoy de acuerdo con ') }}
+                                        <a href="#something">{{ __('los términos y condiciones') }}</a>.
                                     </label>
                                     @if ($errors->has('agree_terms_and_conditions'))
                                         <span class="invalid-feedback" style="display: block;" role="alert">
@@ -83,7 +83,7 @@
                                     @endif
                                 </div>
                                 <div class="card-footer ">
-                                    <button type="submit" class="btn btn-info btn-round">{{ __('Get Started') }}</button>
+                                    <button type="submit" class="btn btn-info btn-round">{{ __('Aceptar') }}</button>
                                 </div>
                             </form>
                         </div>

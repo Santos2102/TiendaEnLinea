@@ -40,12 +40,6 @@
                                 Imagen
                             </td>
                             <td>
-                                Creacion
-                            </td>
-                            <td>
-                                Actualizado
-                            </td>
-                            <td>
                                 Acciones
                             </td>
                         </tr>
@@ -82,12 +76,6 @@
                             </td>
                             <td>
                                 <img src="Assets/Productos/{{$producto->image_path}}" width="150">
-                            </td>
-                            <td>
-                                {{$producto->created_at->format('d-m-Y')}}
-                            </td>
-                            <td>
-                                {{$producto->updated_at->format('d-m-Y')}}
                             </td>
 
                             <td>

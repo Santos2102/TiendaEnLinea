@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreProductoPost;
+use Illuminate\Support\Facades\File;
 
 class ProductoController extends Controller
 {
@@ -18,7 +19,7 @@ class ProductoController extends Controller
     {
         //
         $producto=Producto::all();
-        echo view ('producto.index',['producto'=>$producto]);
+        return view ('producto.index',compact('producto'));
     }
 
     /**
@@ -38,10 +39,19 @@ class ProductoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProductoPost $request)
+    public function store(Request $request)
     {
-        //
-        Producto::create($request->validated());
+        $request->validate([
+            'name'=>'required|min:5|Max:500',
+            'slug'=>'required|min:5|Max:500',
+            'details'=>'required|min:5|Max:500',
+            'price'=>'required',
+            'shipping_cost'=>'required',
+            'description'=>'required|min:5|Max:500',
+            'category'=>'required|min:5|Max:500',
+            'brand'=>'required|min:2|Max:500',
+            'image_path'=>'required|min:5|Max:500',
+        ]);
         $prc_new=new Producto;
         $prc_new->name=$request->input('name');
         $prc_new->slug=$request->input('slug');
@@ -51,15 +61,15 @@ class ProductoController extends Controller
         $prc_new->description=$request->input('description');
         $prc_new->category=$request->input('category');
         $prc_new->brand=$request->input('brand');
-        //$prc_new->image_path=$request->input('image_path');
         if($request->hasFile('image_path'))
         {
             $file = $request->file('image_path');
             $extention = $file->getClientOriginalExtension();
             $filename = time().'.'.$extention;
-            $file->move('Productos', $filename);
-            $prc_new->image = $filename;
+            $file->move('Assets/Productos', $filename);
+            $prc_new->image_path = $filename;
         }
+        $prc_new->save();
         return back()->with('status','Producto creado exitosamente');
     }
 

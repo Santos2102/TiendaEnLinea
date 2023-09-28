@@ -18,7 +18,7 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navigation">
             <ul class="navbar-nav">
-
+                @if(auth()->user()->email!="Admin@gmail.com" && auth()->user()->email!="Gerente@gmail.com")
                 <li class="nav-item btn-rotate dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ route('cart.index') }}"
                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -34,6 +34,7 @@
 
                     </div>
                 </li>
+                @endif
 
 
                 <li class="nav-item btn-rotate dropdown">
@@ -49,8 +50,8 @@
                             @csrf
                         </form>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" onclick="document.getElementById('formLogOut').submit();">{{ __('Log out') }}</a>
-                            <a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('My profile') }}</a>
+                            <a class="dropdown-item" onclick="document.getElementById('formLogOut').submit();">{{ __('Cerrar sesión') }}</a>
+                            <a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Mi perfil') }}</a>
                         </div>
                     </div>
                 </li>
