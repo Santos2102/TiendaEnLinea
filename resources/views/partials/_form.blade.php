@@ -1,5 +1,4 @@
 @include('partials.sesion-flash-status')
-                <section class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <label class="sub" ><b>Nombre:</b></label><br>
                         <input class="fo" id="exampleFormControlTextarea1" placeholder="Ingrese Nombre del producto" aria-label="Disabled input example"  rows="1" type="text" name="name" value ="{{old('name',$producto->name)}}"> <br>
@@ -76,4 +75,3 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <button id="but"  class="btn btn-warning" type="submit">Enviar</button>
                     </div>
-                </section>

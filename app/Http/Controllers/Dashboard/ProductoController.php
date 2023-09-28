@@ -42,6 +42,24 @@ class ProductoController extends Controller
     {
         //
         Producto::create($request->validated());
+        $prc_new=new Producto;
+        $prc_new->name=$request->input('name');
+        $prc_new->slug=$request->input('slug');
+        $prc_new->details=$request->input('details');
+        $prc_new->price=$request->input('price');
+        $prc_new->shipping_cost=$request->input('shipping_cost');
+        $prc_new->description=$request->input('description');
+        $prc_new->category=$request->input('category');
+        $prc_new->brand=$request->input('brand');
+        //$prc_new->image_path=$request->input('image_path');
+        if($request->hasFile('image_path'))
+        {
+            $file = $request->file('image_path');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extention;
+            $file->move('Productos', $filename);
+            $prc_new->image = $filename;
+        }
         return back()->with('status','Producto creado exitosamente');
     }
 
