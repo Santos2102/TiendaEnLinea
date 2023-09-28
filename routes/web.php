@@ -51,6 +51,8 @@ Route::post('login', function(){
             request()->session()->regenerate();
             return redirect()->action([CartController::class,'shop']);
         }
+    }else{
+        return redirect()->back()->with('error','Credenciales incorrectas');
     }
 });
 
