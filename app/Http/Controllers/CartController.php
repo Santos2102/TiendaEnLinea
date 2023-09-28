@@ -11,7 +11,6 @@ class CartController extends Controller
     public function shop()
     {
         $products = Producto::all();
-        //dd($products);
         return view('shop',compact('products'));
     }
     

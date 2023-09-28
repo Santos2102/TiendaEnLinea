@@ -1,18 +1,26 @@
 <div class="sidebar" data-color="white" data-active-color="danger">
     <div class="logo">
-        <a href="/" class="simple-text logo-normal">
+        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+            <div class="logo-image-small">
+                <img src="{{ asset('paper') }}/img/logo-small.png">
+            </div>
+        </a>
+        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
             {{ __('TECSP') }}
         </a>
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav">
+            @if(auth()->user()->email!="Gerente@gmail.com" && auth()->user()->email!="Admin@gmail.com")
             <li class="">
                 <a href="{{ route('shop') }}">
                     <i class="nc-icon nc-bank"></i>
                     <p>{{ __('Productos') }}</p>
                 </a>
             </li>
+            @endif
             
+            @if(auth()->user()->email=="Gerente@gmail.com" || auth()->user()->email=="Admin@gmail.com")
             <li class="">
                 <a data-toggle="collapse" aria-expanded="true" href="#3">
                     <i class="nc-icon"><img src="{{ asset('paper/img/laravel.svg') }}"></i>
@@ -38,15 +46,17 @@
                     </ul>
                 </div>
             </li>
+            @endif
 
-
+            @if(auth()->user()->email=="Gerente@gmail.com")
             <li class="">
                 <a href="/ExistenciaMenor10">
                     <i class="nc-icon nc-bank"></i>
                     <p>{{ __('Baja existencia') }}</p>
                 </a>
             </li>
-
+            @endif
+            @if(auth()->user()->email=="Gerente@gmail.com")
             <li class="">
                 <a data-toggle="collapse" aria-expanded="true" href="#3">
                     <i class="nc-icon"><img src="{{ asset('paper/img/laravel.svg') }}"></i>
@@ -91,7 +101,9 @@
                     </ul>
                 </div>
             </li>
-
+            @endif
+            
+            @if(auth()->user()->email=="Gerente@gmail.com")
             <li class="">
                 <a data-toggle="collapse" aria-expanded="true" href="#1">
                     <i class="nc-icon"><img src="{{ asset('paper/img/laravel.svg') }}"></i>
@@ -136,7 +148,9 @@
                     </ul>
                 </div>
             </li>
+            @endif
             
+            @if(auth()->user()->email=="Gerente@gmail.com")
             <li class="">
                 <a data-toggle="collapse" aria-expanded="true" href="#2">
                     <i class="nc-icon"><img src="{{ asset('paper/img/laravel.svg') }}"></i>
@@ -181,6 +195,7 @@
                     </ul>
                 </div>
             </li>
+            @endif
         </ul>
     </div>
 </div>

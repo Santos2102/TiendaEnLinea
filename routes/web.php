@@ -36,6 +36,7 @@ Route::post('login', function(){
     echo $temporal;
 
     // Verificacion de usuarios
+    //return $credentials->email;
     if(Auth::attempt($credentials))
     {
         if($temporal=="Gerente@gmail.com"){
