@@ -26,7 +26,7 @@ class StoreVentaPost extends FormRequest
         return [
             //
             'quantity'=>'required',
-            'name'=>'required|min:5|Max:500',
+            //'name'=>'required|min:5|Max:500',
             'price'=>'required',
             'subtotal'=>'required',
             'Sucursal'=>'required|Max:500',

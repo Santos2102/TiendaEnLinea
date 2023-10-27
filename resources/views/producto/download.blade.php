@@ -16,7 +16,9 @@
 
 <body>
     <div class="container py-5">
-        <h5 class=" font-weight-bold">Cotizacion</h5>
+        <h5 class=" font-weight-bold">Factura</h5>
+        <h5 class=" font-weight-bold">Cliente: {{ $cliente }}</h5>
+        <h5 class=" font-weight-bold">Fecha: {{ Carbon\Carbon::parse($fecha)->format('d-m-Y') }}</h5>
         <table class="table table-bordered mt-5">
             <thead>
                 <tr>
@@ -24,23 +26,25 @@
                     <th>Cantidad</th>
                     <th>Nombre</th>
                     <th>Precio</th>
-                    <th>Imagen</th>
                     <th>SubTotal</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($cartCollection as $cartCollection)
+                @php
+                    $control = 1;
+                @endphp
+                @for($i = 0; $i < Count($cantidad); $i++)
                 <tr>
-                    <td>{{ $cartCollection->id }}</td>
-                    <td>{{ $cartCollection->quantity }}</td>
-                    <td>{{ $cartCollection->name }}</td>
-                    <td>{{ $cartCollection->price }}</td>
-                    <td>
-                        <img src="Assets/Productos/{{$cartCollection->attributes->image}}" width="150">
-                    </td>
-                    <td>{{ \Cart::get($cartCollection->id)->getPriceSum() }}</td>
+                    <td>{{ $control }}</td>
+                    <td>{{ $cantidad[$i] }}</td>
+                    <td>{{ $nombre[$i] }}</td>
+                    <td>{{ $precio[$i]}}</td>
+                    <td>{{ $subtotal[$i] }}</td>
                 </tr>
-                @endforeach
+                @php
+                    $control++;
+                @endphp
+                @endfor
             </tbody>
         </table>
         <label>Total: {{\Cart::getTotal()}}</label>

@@ -102,16 +102,17 @@
             </div>
             <h1> </h1>
 
-
-            @foreach($cartCollection as $item)
             <form action="{{ route('venta.store') }}" method="post">
-                {{ csrf_field() }}
-                <input type="hidden" value="{{ $item->quantity }}" id="quantity" name="quantity">
-                <input type="hidden" value="{{ $item->name }}" id="name" name="name">
-                <input type="hidden" value="{{ $item->price }}" id="price" name="price">
-                <input type="hidden" value="{{ \Cart::get($item->id)->getPriceSum() }}" id="subtotal" name="subtotal">
+            {{ csrf_field() }}
+            @foreach($cartCollection as $item)
+                <input type="hidden" value="{{ $item->quantity }}" id="quantity" name="quantity[]">
+                <input type="hidden" value="{{ $item->name }}" id="name" name="name[]">
+                <input type="hidden" value="{{ $item->price }}" id="price" name="price[]">
+                <input type="hidden" value="{{ \Cart::get($item->id)->getPriceSum() }}" id="subtotal" name="subtotal[]">
                 <h1> </h1>
-                <div>
+                <h1> </h1>          
+            @endforeach
+            <div>
                     <label>Sucursal:</label>
                     <select id="Sucursal" name="Sucursal">
                         <option value="Pradera Chimaltenango">Pradera Chimaltenango</option>
@@ -123,12 +124,8 @@
                     </select>
                 </div>
                 <input type="hidden" value="{{ Auth::user()->name }}" id="Cliente" name="Cliente">
-
-                <h1> </h1>
-                <button onclick="borrar()" class="btn btn-warning btn-sm" style="margin-right: 10px;">Proceder al CheckOut {{$item->name }} </button>
-                
+            <button type="submit" class="btn btn-warning btn-sm" style="margin-right: 10px;">Proceder al CheckOut </button>
             </form>
-            @endforeach
 
             <h1> </h1>
             <a href="/" class="btn btn-dark">Continue en la tienda</a>
