@@ -8,6 +8,7 @@ use App\Http\Controllers\Dashboard\GoogleController;
 use App\Http\Controllers\Dashboard\GerenteController;
 use App\Http\Controllers\Dashboard\VentaController;
 use App\Http\Controllers\ReporteController;
+use App\Http\Controllers\StripeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -112,7 +113,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/ventasMiraflores', [ReporteController::class, 'ventasMiraflores'])->name('reporte.ventasMiraflores');
     Route::get('/ventasCoatepeque', [ReporteController::class, 'ventasCoatepeque'])->name('reporte.ventasCoatepeque');
 
-
+    Route::get('/stripe',[StripeController::class, 'checkout'])->name('checkout');
+    Route::post('/session',[StripeController::class, 'session'])->name('session');
+    Route::get('/success',[StripeController::class, 'success'])->name('success');
 });
 
 Route::group(['middleware' => 'auth'], function () {
