@@ -10,11 +10,16 @@
         "darryldecode/cart": "^4.2",
         "guzzlehttp/guzzle": "^7.2",
         "laravel-frontend-presets/paper": "^1.0",
+        "laravel/cashier": "^14.12",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
+<<<<<<< HEAD
         "laravel/ui": "^4.2",
         "stripe/stripe-php": "^13.0"
+=======
+        "laravel/ui": "^4.2"
+>>>>>>> 7de14196f3c470cd9173e1b96d1d9444f58041f6
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

@@ -1,23 +1,24 @@
-<?php
-
+<?php 
+ 
 namespace App\Http\Controllers;
-
+ 
 use Illuminate\Http\Request;
-
+ 
 class StripeController extends Controller
 {
-    public function checkout(){
-        return view('Stripe.checkout'); 
+    public function checkout()
+    {
+        return view('checkout');
     }
-
+ 
     public function session(Request $request)
     {
         \Stripe\Stripe::setApiKey(config('services.stripe.secret'));
  
-        $productname = $request->get('productname');
-        $totalprice = $request->get('total');
+        $productname = $request->get('name');
+        $totalprice = $request->get('price');
         $two0 = "00";
-        $total = "$totalprice$two0";
+        $total = \Cart::getTotal();
  
         $session = \Stripe\Checkout\Session::create([
             'line_items'  => [
@@ -29,9 +30,8 @@ class StripeController extends Controller
                         ],
                         'unit_amount'  => $total,
                     ],
-                    'quantity'   => 1,
+                    'quantity'   => $request->get('quantity'),
                 ],
-                 
             ],
             'mode'        => 'payment',
             'success_url' => route('success'),
@@ -43,6 +43,6 @@ class StripeController extends Controller
  
     public function success()
     {
-        return "Thanks for you order You have just completed your payment. The seeler will reach out to you as soon as possible";
+        //Venta::create($request->validated());
     }
 }
